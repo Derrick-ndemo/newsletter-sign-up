@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thank You</title>
+        <link rel="stylesheet" href="style2.css">
+    </head>
+    <body>
+        <div class="container">
+            <img src="assets/images/icon-list.svg" alt="icon_list">
+            <h1>Thanks for subscribing!</h1>
+            <p id="email"></p>
+            <button type="submit" id="dismiss">Dismiss message</button>
+        </div>
+        <script>
+            window.onload = function() {
+                // Retrieve the email from the URL query parameter
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const email = urlParams.get('email');
+        
+                // Manipulate the email as needed
+                if (email) {
+                    // Example: Output the email in a <p> element
+                    document.getElementById('email').innerText = "A confirmation has been sent to " + email + ". Please open it and click the button inside to confirm the subscription.!";
+                }
+            };
+
+            //  return back to the index page
+            const dismiss = document.getElementById('dismiss')
+            
+            dismiss.addEventListener('click', () => {
+                window.location.href = "index.html";
+            });
+        </script>
+    </body>
+</html>
